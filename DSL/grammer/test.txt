@@ -1,0 +1,27 @@
+        Varchar / num /13965540430;Remark/客服电话
+        Varchar / money /0;Remark/本月消费
+
+        Run/complainProc;Speak /"对不起,问题马上进行解决";Remark/弹出返回栏
+        Run/returnMoneyProc;Speak /"对不起,马上帮你退款"; 
+        Run/findMoney;Remark/ 调用系统数据库查询账单
+        Run/findCount;Remark/ 查询折扣信息
+
+        Welcome ; Speak/"您好 , 请问有什么可以帮您?";
+
+        Branch / "投诉" ;Process/ complainProc ;Speak/"您的意见是我们改进工作的动力"/"请问您还有什么补充?";
+        Branch /"账单";Process/ findMoney ;Speak / "您的本月账单是"  /money/"元";
+        Branch /"退钱" ;Process/ returnMoneyProc ;Speak/"已经退款成功"
+        Branch /"优惠" ;Process/findCount ;Speak/"可以关注公众号有更多优惠"
+        Branch /"优惠" ;Process/findCount ;Speak/"可以关注公众号有更多优惠"
+        Branch /"发货时间" ;Speak/"48h内发货哦"
+
+        Branch /"快递员" ;Speak/"快递员电话号为"/num
+        Branch /"发货时间" ;Speak/"48h内发货哦"
+
+
+        Exit/10;Speak /"请问你对客服的服务满意吗"
+
+        Unknown; Speak/ "你好,请再说一遍,或致电人工客服的号码为:"/num;
+        
+
+        Remark;顾客是上帝
